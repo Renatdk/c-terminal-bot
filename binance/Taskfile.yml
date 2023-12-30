@@ -1,1 +1,6 @@
 version: '3'
+
+tasks:
+  default:
+    cmds:
+      - cc main.c libs/mongoose.c -o ws_client -Wall -lssl -lcrypto -DMG_ENABLE_OPENSSL

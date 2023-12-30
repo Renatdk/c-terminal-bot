@@ -1,6 +1,6 @@
 #include "libs/mongoose.h"
 
-static const char* s_url = "ws://localhost:8181/websocket";
+static const char* s_url = "wss://stream.binance.com:9443/stream?streams=btcusdt@bookTicker/bnbbtc@bookTicker";
 
 // Print websocket response and signal that we're done
 static void fn(struct mg_connection* c, int ev, void* ev_data, void* fn_data)
@@ -33,7 +33,7 @@ static void fn(struct mg_connection* c, int ev, void* ev_data, void* fn_data)
     else if (ev == MG_EV_WS_OPEN)
     {
         // When websocket handshake is successful, send message
-        mg_ws_send(c, "hello", 5, WEBSOCKET_OP_TEXT);
+       //  mg_ws_send(c, "hello", 5, WEBSOCKET_OP_TEXT);
     }
     else if (ev == MG_EV_WS_MSG)
     {
@@ -45,7 +45,7 @@ static void fn(struct mg_connection* c, int ev, void* ev_data, void* fn_data)
     if (ev == MG_EV_ERROR || ev == MG_EV_CLOSE || ev == MG_EV_WS_MSG)
     {
         // Signal that we're done
-        *(bool*)fn_data = true;
+       // *(bool*)fn_data = true;
     }
 }
 
