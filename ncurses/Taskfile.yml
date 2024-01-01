@@ -1,0 +1,6 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - cc main.c -lpanel -lncurses -o ncurses
